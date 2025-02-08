@@ -1,0 +1,30 @@
+{
+  "name": "luna",
+  "type": "module",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Luna is a home assistant app",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "tauri": "tauri",
+    "preview": "vite preview",
+    "lint:fix": "bunx biome check --write ./src && bunx biome format --write ./src",
+    "lint:check": "bunx biome check ./src",
+    "check:updates": "bunx npm-check-updates --interactive --format group"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.2.0",
+    "@tauri-apps/plugin-opener": "^2.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.2.7",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.3"
+  }
+}
