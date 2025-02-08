@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@theme {
+	--fonts-sans: "Geist", sans-serif;
+}
+
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentColor);
+	}
+
+	body {
+		@apply font-sans antialiased;
+	}
+
+	button {
+		@apply cursor-pointer;
+	}
+}
