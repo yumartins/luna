@@ -2,8 +2,29 @@
 
 @plugin "tailwindcss-animate";
 
+@font-face {
+	src: url("../assets/fonts/Geist-Regular.woff2") format("woff2");
+	font-family: Geist;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	src: url("../assets/fonts/Geist-Medium.woff2") format("woff2");
+	font-family: Geist;
+	font-weight: 500;
+	font-display: swap;
+}
+
+@font-face {
+	src: url("../assets/fonts/Geist-Bold.woff2") format("woff2");
+	font-family: Geist;
+	font-weight: 700;
+	font-display: swap;
+}
+
 @theme {
-	--fonts-sans: "Geist", sans-serif;
+	--font-sans: Geist, sans-serif;
 }
 
 @layer base {
