@@ -2,6 +2,8 @@
 
 @plugin "tailwindcss-animate";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @font-face {
 	src: url("../assets/fonts/Geist-Regular.woff2") format("woff2");
 	font-family: Geist;
