@@ -1,3 +1,5 @@
+export * from "./light";
+
 export * from "./my-devices";
 
 export * from "./usage-status";

@@ -73,7 +73,7 @@ export function AirConditioner({ className, ...props }: AirConditionerProps) {
 				<p className="text-zinc-400 text-xs font-medium">16℃</p>
 
 				{Array.from({ length: 7 }).map((_) => (
-					<div
+					<span
 						key={Math.random()}
 						className="w-px bg-zinc-500 rounded-full even:h-1.5 odd:h-2.5"
 					/>
