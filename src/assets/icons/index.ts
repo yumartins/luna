@@ -30,8 +30,16 @@ export { default as IconUsersFilled } from "./icon-users-filled.svg?react";
 
 export { default as IconLayerFilled } from "./icon-layer-filled.svg?react";
 
+export { default as IconAirdropFilled } from "./icon-airdrop-filled.svg?react";
+
+export { default as IconMonitorFilled } from "./icon-monitor-filled.svg?react";
+
 export { default as IconSpeakerFilled } from "./icon-speaker-filled.svg?react";
 
 export { default as IconLifebuoyFilled } from "./icon-lifebuoy-filled.svg?react";
+
+export { default as IconKeyboardFilled } from "./icon-keyboard-filled.svg?react";
+
+export { default as IconElectricityFilled } from "./icon-electricity-filled.svg?react";
 
 export { default as IconNotificationFilled } from "./icon-notification-filled.svg?react";

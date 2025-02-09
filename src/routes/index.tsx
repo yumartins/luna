@@ -2,6 +2,7 @@ import { Button } from "@/components/ui";
 import {
 	AirConditioner,
 	FilterDevices,
+	MyDevices,
 	UsageStatus,
 } from "@/layouts/dashboard";
 import { createFileRoute } from "@tanstack/react-router";
@@ -19,10 +20,14 @@ function Dashboard() {
 				<Button>+ Add Device</Button>
 			</div>
 
-			<div className="grid grid-cols-5 gap-6 mt-9">
-				<AirConditioner className="col-span-2" />
+			<div className="grid gap-6 mt-9 lg:grid-cols-5">
+				<AirConditioner className="lg:col-span-2" />
 
-				<UsageStatus className="col-span-3" />
+				<UsageStatus className="lg:col-span-3" />
+			</div>
+
+			<div className="grid gap-6 mt-8 lg:grid-cols-5">
+				<MyDevices className="lg:col-span-3" />
 			</div>
 		</div>
 	);
