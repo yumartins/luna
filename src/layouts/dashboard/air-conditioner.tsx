@@ -51,7 +51,7 @@ export function AirConditioner({ className, ...props }: AirConditionerProps) {
 		<div
 			{...props}
 			className={cn(
-				"flex flex-col items-center rounded-2xl bg-zinc-800 p-6 md:p-8",
+				"flex flex-col items-center rounded-2xl bg-zinc-800 h-fit p-6 md:p-8",
 				className,
 			)}
 		>
