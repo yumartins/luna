@@ -17,3 +17,7 @@ export { default as IconUserFilled } from "./icon-user-filled.svg?react";
 export { default as IconUsersFilled } from "./icon-users-filled.svg?react";
 
 export { default as IconLayerFilled } from "./icon-layer-filled.svg?react";
+
+export { default as IconLifebuoyFilled } from "./icon-lifebuoy-filled.svg?react";
+
+export { default as IconNotificationFilled } from "./icon-notification-filled.svg?react";

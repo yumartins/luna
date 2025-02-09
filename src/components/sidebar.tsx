@@ -55,7 +55,7 @@ export function Sidebar() {
 								className:
 									"text-zinc-100! font-semibold [&>.icon]:hidden [&>.icon-active]:flex [&>.bar]:scale-100 [&>.bar]:opacity-100",
 							}}
-							activeOptions={{ exact: true }}
+							activeOptions={{ exact: path === "/" }}
 						>
 							<Icon className="size-5 icon" />
 							<ActiveIcon className="size-5 icon-active hidden" />

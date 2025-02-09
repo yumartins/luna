@@ -19,6 +19,13 @@
 }
 
 @font-face {
+	src: url("../assets/fonts/Geist-SemiBold.woff2") format("woff2");
+	font-family: Geist;
+	font-weight: 600;
+	font-display: swap;
+}
+
+@font-face {
 	src: url("../assets/fonts/Geist-Bold.woff2") format("woff2");
 	font-family: Geist;
 	font-weight: 700;
@@ -27,6 +34,9 @@
 
 @theme {
 	--font-sans: Geist, sans-serif;
+
+	--color-cyan-300: #a1ffff;
+	--color-purple-300: #edbaff;
 }
 
 @layer base {
