@@ -1,0 +1,17 @@
+{
+  "name": "io",
+  "type": "module",
+  "version": "0.0.1",
+  "license": "MIT",
+  "exports": "./dist/main.js",
+  "scripts": {
+    "build:dev": "bun build --entrypoints src/main.ts --outdir dist --packages external --watch",
+    "build:release": "bun build --entrypoints src/main.ts --outdir dist --packages external --minify",
+    "device:build:dev": "xs-dev build --output ./dist --device esp32"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@moddable/typings": "^5.4.1",
+    "@types/bun": "^1.2.2"
+  }
+}
