@@ -8,6 +8,12 @@ export { default as IconLayer } from "./icon-layer.svg?react";
 
 export { default as IconUsers } from "./icon-users.svg?react";
 
+export { default as IconLogout } from "./icon-logout.svg?react";
+
+export { default as IconGithub } from "./icon-github.svg?react";
+
+export { default as IconGoogle } from "./icon-google.svg?react";
+
 export { default as IconSunFilled } from "./icon-sun-filled.svg?react";
 
 export { default as IconSun1Filled } from "./icon-sun-1-filled.svg?react";
