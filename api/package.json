@@ -3,12 +3,16 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "bun run --watch src/index.ts",
-    "build": "bun build --compile --minify-whitespace --minify-syntax --target bun --outfile ./build/app ./src/index.ts"
+    "build": "bun build --compile --minify-whitespace --minify-syntax --target bun --outfile ./build/app ./src/index.ts",
+    "check:updates": "bunx npm-check-updates --interactive --format group"
   },
   "dependencies": {
+    "@elysiajs/swagger": "^1.2.0",
+    "better-auth": "^1.1.18",
     "elysia": "^1.2.12"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "bun-types": "^1.2.2"
   }
 }
