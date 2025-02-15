@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "build": "bun build --compile --minify-whitespace --minify-syntax --target bun --outfile ./build/app ./src/index.ts"
+  },
+  "dependencies": {
+    "elysia": "^1.2.12"
+  },
+  "devDependencies": {
+    "bun-types": "^1.2.2"
+  }
+}
