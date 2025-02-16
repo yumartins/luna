@@ -1,4 +1,7 @@
-debugger;
+import { wifi } from "@/services";
 
-const message = "Hello, world - sample";
-console.log(message);
+function main() {
+	const wifiConnection = wifi();
+}
+
+main();

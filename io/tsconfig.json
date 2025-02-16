@@ -2,15 +2,22 @@
 	"compilerOptions": {
 		"incremental": true,
 		"outDir": "dist",
-		"module": "es2022",
+		"module": "ES2022",
 		"sourceMap": true,
 		"target": "ES2022",
 		"types": [
 			"./node_modules/@moddable/typings/xs",
+			"./node_modules/@moddable/typings/net",
 			"./node_modules/@moddable/typings/wifi",
 			"./node_modules/@moddable/typings/timer",
-			"./node_modules/@moddable/typings/mcpack"
-		]
+			"./node_modules/@moddable/typings/mcpack",
+			"./node_modules/@moddable/typings/pins/digital"
+		],
+		"paths": {
+			"@/*": ["./src/*"]
+		},
+		"baseUrl": ".",
+		"moduleResolution": "node"
 	},
-	"include": ["src/main.ts"]
+	"include": ["src/**/*.ts"]
 }

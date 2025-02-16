@@ -10,8 +10,8 @@
   },
   "linter": {
     "rules": {
-      "suspicious": {
-        "noMisleadingCharacterClass": "warn"
+      "style": {
+        "useNodejsImportProtocol": "off"
       },
       "correctness": {
         "noUnusedImports": "error"

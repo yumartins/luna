@@ -5,13 +5,14 @@
   "license": "MIT",
   "exports": "./dist/main.js",
   "scripts": {
-    "build:dev": "bun build --entrypoints src/main.ts --outdir dist --packages external --watch",
-    "build:release": "bun build --entrypoints src/main.ts --outdir dist --packages external --minify",
-    "device:build:dev": "xs-dev build --output ./dist --device esp32"
+    "dev": "sh .bin/scripts.sh dev",
+    "build:dev": "sh .bin/scripts.sh build-dev",
+    "build:release": "sh .bin/scripts.sh build-release"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@moddable/typings": "^5.4.1",
-    "@types/bun": "^1.2.2"
+    "@types/bun": "^1.2.2",
+    "@types/node": "^22.13.4"
   }
 }
