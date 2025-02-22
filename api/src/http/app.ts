@@ -23,6 +23,11 @@ const app = new Elysia()
 		}),
 	)
 	.use(error)
-	.use(auth);
+	.use(auth)
+	.get("/user", ({ user }) => user, {
+		auth: true,
+	});
+
+export type App = typeof app;
 
 export { app };

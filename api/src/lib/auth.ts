@@ -1,8 +1,9 @@
 import { env } from "@/env";
 import { betterAuth } from "better-auth";
-import { prismaAdapter } from "better-auth/adapters/prisma";
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { multiSession } from "better-auth/plugins";
 import { db } from "./db";
+import { account, session, user, verification } from "./db/schemas";
 
 export const auth = betterAuth({
 	plugins: [multiSession({ maximumSessions: 3 })],
@@ -18,9 +19,20 @@ export const auth = betterAuth({
 
 	basePath: "/auth",
 
-	database: prismaAdapter(db, {
-		provider: "postgresql",
+	database: drizzleAdapter(db, {
+		schema: {
+			user,
+			session,
+			account,
+			verification,
+		},
+
+		provider: "pg",
 	}),
+
+	emailAndPassword: {
+		enabled: true,
+	},
 
 	socialProviders: {
 		github: {

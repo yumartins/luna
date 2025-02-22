@@ -1,12 +1,19 @@
 import { auth } from "@/lib";
 import Elysia from "elysia";
 
-export default new Elysia().all("/auth/*", async ({ error, request }) => {
-	const BETTER_AUTH_ACCEPT_METHODS = ["POST", "GET"];
+export default new Elysia({ name: "better-auth" }).mount(auth.handler).macro({
+	auth: {
+		async resolve({ error, request: { headers } }) {
+			const session = await auth.api.getSession({
+				headers,
+			});
 
-	if (BETTER_AUTH_ACCEPT_METHODS.includes(request.method)) {
-		return auth.handler(request);
-	}
+			if (!session) return error(401);
 
-	error(405);
+			return {
+				user: session.user,
+				session: session.session,
+			};
+		},
+	},
 });
