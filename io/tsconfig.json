@@ -6,12 +6,15 @@
 		"sourceMap": true,
 		"target": "ES2022",
 		"types": [
+			"@types/node",
 			"./node_modules/@moddable/typings/xs",
 			"./node_modules/@moddable/typings/net",
 			"./node_modules/@moddable/typings/wifi",
 			"./node_modules/@moddable/typings/timer",
 			"./node_modules/@moddable/typings/mcpack",
-			"./node_modules/@moddable/typings/pins/digital"
+			"./node_modules/@moddable/typings/ble/btutils",
+			"./node_modules/@moddable/typings/pins/digital",
+			"./node_modules/@moddable/typings/ble/bleclient"
 		],
 		"paths": {
 			"@/*": ["./src/*"]

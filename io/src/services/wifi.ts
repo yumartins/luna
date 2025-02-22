@@ -3,6 +3,8 @@ import Wifi, { type WiFiCallback } from "wifi";
 
 export function wifi() {
 	function callback(event: Parameters<WiFiCallback>[0]) {
+		console.log(event);
+
 		switch (event) {
 			case Wifi.connected:
 				break;
@@ -17,8 +19,8 @@ export function wifi() {
 
 	const monitor = new Wifi(
 		{
-			ssid: "",
-			password: "",
+			ssid: process.env.WIFI_SSID,
+			password: process.env.WIFI_PASSWORD,
 		},
 		callback,
 	);
