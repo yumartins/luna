@@ -1,7 +1,9 @@
-import { wifi } from "@/services";
+import { bluetooth, wifi } from "@/services";
 
 function main() {
-	const wifiConnection = wifi();
+	wifi();
+
+	bluetooth.onReady();
 }
 
 main();

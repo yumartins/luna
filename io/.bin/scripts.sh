@@ -2,7 +2,7 @@
 set -e
 
 USB_PORT="/dev/cu.usbserial-0001"
-DEFAULT_BUILD_COMMAND="bun build --entrypoints src/main.ts --outdir dist --target node --env inline --external pins --external timer --external wifi --external net"
+DEFAULT_BUILD_COMMAND="bun build --entrypoints src/main.ts --outdir dist --target node --env inline --external pins --external timer --external wifi --external net --external bleserver --external btutils"
 
 if [ $# -eq 0 ]; then
   echo "Usage: $0 {dev|build-dev|build-release}"

@@ -14,7 +14,7 @@
 			"./node_modules/@moddable/typings/mcpack",
 			"./node_modules/@moddable/typings/ble/btutils",
 			"./node_modules/@moddable/typings/pins/digital",
-			"./node_modules/@moddable/typings/ble/bleclient"
+			"./node_modules/@moddable/typings/ble/bleserver"
 		],
 		"paths": {
 			"@/*": ["./src/*"]

@@ -12,7 +12,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@moddable/typings": "^5.4.1",
-    "@types/bun": "^1.2.2",
+    "@types/bun": "^1.2.3",
     "@types/node": "^22.13.5"
   }
 }
