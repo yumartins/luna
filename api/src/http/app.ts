@@ -7,7 +7,7 @@ import Elysia from "elysia";
 const app = new Elysia()
 	.use(
 		cors({
-			origin: "http://localhost:3000",
+			origin: "*",
 			methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 			credentials: true,
 			allowedHeaders: ["Authorization", "Content-Type"],

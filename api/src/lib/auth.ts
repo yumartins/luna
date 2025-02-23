@@ -30,6 +30,8 @@ export const auth = betterAuth({
 		provider: "pg",
 	}),
 
+	trustedOrigins: ["luna-ai://"],
+
 	emailAndPassword: {
 		enabled: true,
 	},

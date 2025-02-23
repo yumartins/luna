@@ -5,25 +5,25 @@ export const user = pgTable("user", {
 	name: text().notNull(),
 	email: text().notNull(),
 	image: text(),
-	createdAt: timestamp().notNull().defaultNow(),
-	updatedAt: timestamp()
+	createdAt: timestamp("created_at").notNull().defaultNow(),
+	updatedAt: timestamp("updated_at")
 		.notNull()
 		.defaultNow()
 		.$onUpdate(() => new Date()),
-	emailVerified: boolean().notNull().default(false),
+	emailVerified: boolean("email_verified").notNull().default(false),
 });
 
 export const session = pgTable("session", {
 	id: text().primaryKey(),
 	token: text().notNull(),
-	userId: text()
+	userId: text("user_id")
 		.notNull()
 		.references(() => user.id),
-	expiresAt: date().notNull(),
-	ipAddress: text(),
-	userAgent: text(),
-	createdAt: timestamp().notNull().defaultNow(),
-	updatedAt: timestamp()
+	expiresAt: date("expires_at").notNull(),
+	ipAddress: text("ip_address"),
+	userAgent: text("user_agent"),
+	createdAt: timestamp("created_at").notNull().defaultNow(),
+	updatedAt: timestamp("updated_at")
 		.notNull()
 		.defaultNow()
 		.$onUpdate(() => new Date()),
@@ -31,31 +31,31 @@ export const session = pgTable("session", {
 
 export const account = pgTable("account", {
 	id: text().primaryKey(),
-	scope: text(),
-	userId: text()
+	scope: text("scope"),
+	userId: text("user_id")
 		.notNull()
 		.references(() => user.id),
-	idToken: text(),
-	password: text(),
-	accountId: text().notNull(),
-	createdAt: timestamp().notNull().defaultNow(),
-	updatedAt: timestamp()
+	idToken: text("id_token"),
+	password: text("password"),
+	accountId: text("account_id").notNull(),
+	createdAt: timestamp("created_at").notNull().defaultNow(),
+	updatedAt: timestamp("updated_at")
 		.notNull()
 		.defaultNow()
 		.$onUpdate(() => new Date()),
-	providerId: text().notNull(),
-	accessToken: text(),
-	refreshToken: text(),
-	accessTokenExpiresAt: date(),
-	refreshTokenExpiresAt: date(),
+	providerId: text("provider_id").notNull(),
+	accessToken: text("access_token"),
+	refreshToken: text("refresh_token"),
+	accessTokenExpiresAt: date("access_token_expires_at"),
+	refreshTokenExpiresAt: date("refresh_token_expires_at"),
 });
 
 export const verification = pgTable("verification", {
 	id: text().primaryKey(),
 	value: text().notNull(),
-	expiresAt: timestamp().notNull(),
-	createdAt: timestamp().notNull().defaultNow(),
-	updatedAt: timestamp()
+	expiresAt: timestamp("expires_at").notNull(),
+	createdAt: timestamp("created_at").notNull().defaultNow(),
+	updatedAt: timestamp("updated_at")
 		.notNull()
 		.defaultNow()
 		.$onUpdate(() => new Date()),
