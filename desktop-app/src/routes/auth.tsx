@@ -10,6 +10,7 @@ function Auth() {
 	async function handleAuth(provider: "github" | "google") {
 		const { data, error } = await auth.signIn.social({
 			provider,
+			callbackURL: "/",
 		});
 
 		if (error) {
