@@ -1,40 +1,60 @@
 {
-	"expo": {
-		"ios": {
-			"supportsTablet": true
-		},
-		"name": "Luna AI",
-		"icon": "./src/assets/icon.png",
-		"slug": "luna-ai",
-		"scheme": "luna-ai",
-		"splash": {
-			"image": "./src/assets/splash-icon.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"version": "1.0.0",
-		"plugins": [
-			"expo-router",
-			[
-				"expo-secure-store",
-				{
-					"faceIDPermission": "Allow $(PRODUCT_NAME) to access your Face ID biometric data.",
-					"configureAndroidBackup": true
-				}
-			]
-		],
-		"android": {
-			"adaptiveIcon": {
-				"foregroundImage": "./src/assets/adaptive-icon.png",
-				"backgroundColor": "#ffffff"
-			}
-		},
-		"platforms": ["ios", "android"],
-		"experiments": {
-			"tsconfigPaths": true
-		},
-		"orientation": "portrait",
-		"newArchEnabled": true,
-		"userInterfaceStyle": "light"
-	}
+  "expo": {
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.appbomdia.luna-ai"
+    },
+    "name": "Luna AI",
+    "icon": "./src/assets/icon.png",
+    "slug": "luna-ai",
+    "scheme": "luna-ai",
+    "splash": {
+      "image": "./src/assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "version": "1.0.0",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-secure-store",
+        {
+          "faceIDPermission": "Allow $(PRODUCT_NAME) to access your Face ID biometric data.",
+          "configureAndroidBackup": true
+        }
+      ],
+      [
+        "react-native-ble-plx",
+        {
+          "modes": [
+            "peripheral",
+            "central"
+          ],
+          "isBackgroundEnabled": true,
+          "bluetoothAlwaysPermission": "Allow $(PRODUCT_NAME) to connect to bluetooth devices"
+        }
+      ]
+    ],
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_CONNECT"
+      ]
+    },
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "experiments": {
+      "tsconfigPaths": true
+    },
+    "orientation": "portrait",
+    "newArchEnabled": true,
+    "userInterfaceStyle": "light"
+  }
 }
