@@ -1,11 +1,13 @@
+import { useBLE } from "@/hooks";
 import { auth } from "@/lib";
 import { useRouter } from "expo-router";
-import { Button, Text, View } from "react-native";
+import { Button, View } from "react-native";
 
 export default function Page() {
 	const { replace } = useRouter();
 
-	const { data: session } = auth.useSession();
+	const { requestPermissions, scanForPeripherals, connectToDevice, ...rest } =
+		useBLE();
 
 	async function handleLogout() {
 		await auth.signOut();
@@ -13,11 +15,12 @@ export default function Page() {
 		replace("/");
 	}
 
-	if (!session) return null;
+	console.log({ rest });
 
 	return (
 		<View>
-			<Text>Hello {session.user.name}</Text>
+			<Button title="Request Permissions" onPress={requestPermissions} />
+			<Button title="Scan for Peripherals" onPress={scanForPeripherals} />
 			<Button title="Logout" onPress={handleLogout} />
 		</View>
 	);

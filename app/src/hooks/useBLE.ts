@@ -72,6 +72,8 @@ export function useBLE() {
 		await ble.startDeviceScan(null, null, (error, device) => {
 			if (error) console.log(error);
 
+			console.log({ device });
+
 			if (device && (device.localName === "Luna" || device.name === "Luna")) {
 				setDevices((prev: Device[]) => {
 					if (!isDuplicteDevice(prev, device)) return [...prev, device];
@@ -80,6 +82,10 @@ export function useBLE() {
 				});
 			}
 		});
+	}
+
+	async function stopScanForPeripherals() {
+		await ble.stopDeviceScan();
 	}
 
 	async function startStreamingData(device: Device) {
@@ -120,11 +126,20 @@ export function useBLE() {
 		}
 	}
 
+	async function disconnectFromDevice(deviceId: string) {
+		return ble
+			.cancelDeviceConnection(deviceId)
+			.then(() => setConnectedDevice(null))
+			.catch((e) => console.log("FAILED TO DISCONNECT", e));
+	}
+
 	return {
 		devices,
 		connectedDevice,
 		connectToDevice,
 		scanForPeripherals,
 		requestPermissions,
+		disconnectFromDevice,
+		stopScanForPeripherals,
 	};
 }
