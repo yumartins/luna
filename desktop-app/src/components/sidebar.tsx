@@ -40,9 +40,9 @@ const routes = [
 export function Sidebar() {
 	return (
 		<div className="h-screen w-56 flex flex-col sticky top-0">
-			<div className="p-10 pt-16">
+			<Link to="/auth" className="p-10 pt-16">
 				<h1 className="text-white font-bold">Luna</h1>
-			</div>
+			</Link>
 
 			<nav className="mt-6">
 				<ul className="flex flex-col gap-6">
