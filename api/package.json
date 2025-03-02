@@ -11,15 +11,15 @@
   "dependencies": {
     "@elysiajs/cors": "^1.2.0",
     "@elysiajs/swagger": "^1.2.2",
-    "better-auth": "^1.1.19",
-    "drizzle-orm": "^0.39.3",
-    "elysia": "^1.2.21",
+    "better-auth": "^1.2.0",
+    "drizzle-orm": "^0.40.0",
+    "elysia": "^1.2.24",
     "pg": "^8.13.3"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/pg": "^8.11.11",
-    "bun-types": "^1.2.3",
-    "drizzle-kit": "^0.30.4"
+    "bun-types": "^1.2.4",
+    "drizzle-kit": "^0.30.5"
   }
 }
