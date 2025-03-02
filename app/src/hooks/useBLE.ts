@@ -1,4 +1,5 @@
 import { ble } from "@/lib";
+import { encodeStringToBase64 } from "@/utils";
 import * as ExpoDevice from "expo-device";
 import { useState } from "react";
 import { PermissionsAndroid, Platform } from "react-native";
@@ -102,8 +103,8 @@ export function useBLE() {
 		}
 
 		device.monitorCharacteristicForService(
-			process.env.EXPO_PUBLIC_BLE_SERVICE_UUID as string,
-			process.env.EXPO_PUBLIC_BLE_CHARACTERISTIC_UUID as string,
+			"0000180d-0000-1000-8000-00805f9b34fb",
+			"00002a00-0000-1000-8000-00805f9b34fb",
 			onDataUpdate,
 		);
 	}
@@ -116,9 +117,22 @@ export function useBLE() {
 
 			await deviceConnection.discoverAllServicesAndCharacteristics();
 
-			const services = await deviceConnection.services();
+			// const services = await deviceConnection.services();
 
-			console.log({ services });
+			// console.log({ services });
+
+			// const characteristics = await deviceConnection.characteristicsForService(
+			// 	"0000180d-0000-1000-8000-00805f9b34fb",
+			// );
+
+			const characteristicValue =
+				await deviceConnection.writeCharacteristicWithResponseForService(
+					"0000180d-0000-1000-8000-00805f9b34fb",
+					"00002a00-0000-1000-8000-00805f9b34fb",
+					encodeStringToBase64("0"),
+				);
+
+			console.log({ characteristicValue });
 
 			await stopScanForPeripherals();
 
