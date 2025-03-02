@@ -1,10 +1,15 @@
 {
+  "ble": {
+    "*": [
+      "./src/bleservices/*"
+    ]
+  },
+  "modules": {
+    "*": "./main"
+  },
   "include": [
     "$(MODDABLE)/examples/manifest_base.json",
     "$(MODDABLE)/examples/manifest_typings.json",
     "$(MODDABLE)/modules/network/ble/manifest_server.json"
-  ],
-  "modules": {
-    "*": "./main"
-  }
+  ]
 }

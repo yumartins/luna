@@ -1,13 +1,4 @@
 import BLEServer from "bleserver";
-import { uuid } from "btutils";
-
-const serviceUUID = process.env
-	.BLE_SERVICE_UUID as unknown as TemplateStringsArray;
-const characteristicUUID = process.env
-	.BLE_CHARACTERISTIC_UUID as unknown as TemplateStringsArray;
-
-const SERVICE_UUID = uuid(serviceUUID);
-const CHARACTERISTIC_UUID = uuid(characteristicUUID);
 
 class BLE extends BLEServer {
 	onReady(): void {
@@ -16,9 +7,7 @@ class BLE extends BLEServer {
 		this.startAdvertising({
 			advertisingData: {
 				flags: 6,
-				shortName: "luna",
-				completeName: "Luna IO",
-				completeUUID16List: [SERVICE_UUID, CHARACTERISTIC_UUID],
+				completeName: process.env.BLE_DEVICE_NAME,
 			},
 		});
 	}
@@ -31,6 +20,30 @@ class BLE extends BLEServer {
 
 	onDisconnected(device: Parameters<BLEServer["onDisconnected"]>[0]): void {
 		console.log(`🔴 Device disconnected: ${device.address}`);
+
+		this.startAdvertising({
+			advertisingData: {
+				flags: 6,
+				completeName: "Luna IO",
+			},
+		});
+	}
+
+	onCharacteristicRead(
+		characteristic: Parameters<BLEServer["onCharacteristicRead"]>[0],
+	) {
+		trace(`Characteristic ${characteristic.uuid} read\n`);
+
+		return 123;
+	}
+
+	onCharacteristicWritten(
+		characteristic: Parameters<BLEServer["onCharacteristicWritten"]>[0],
+		value: Parameters<BLEServer["onCharacteristicWritten"]>[1],
+	) {
+		trace(
+			`Characteristic ${characteristic.uuid} written with value: ${value}\n`,
+		);
 	}
 }
 
