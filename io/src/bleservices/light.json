@@ -1,13 +1,13 @@
 {
   "service": {
-    "uuid": "d1720199-f8c6-4998-ba47-4de5d0b72779",
+    "uuid": "180D",
     "characteristics": {
       "light_characteristic": {
-        "uuid": "b1867de8-8dc2-4466-8a16-faf36152560d",
-        "properties": [
-          "write"
-        ],
-        "maxBytes": 20
+        "uuid": "2A00",
+        "type": "String",
+        "maxBytes": 32,
+        "properties": "write",
+        "permissions": "write"
       }
     }
   }

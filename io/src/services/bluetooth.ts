@@ -1,4 +1,9 @@
 import BLEServer from "bleserver";
+import { uuid } from "btutils";
+import { light } from "./light";
+
+const BATTERY_SERVICE_UUID = uuid`180F`;
+const HEART_RATE_SERVIE_UUID = uuid`180D`;
 
 class BLE extends BLEServer {
 	onReady(): void {
@@ -8,6 +13,7 @@ class BLE extends BLEServer {
 			advertisingData: {
 				flags: 6,
 				completeName: process.env.BLE_DEVICE_NAME,
+				completeUUID16List: [HEART_RATE_SERVIE_UUID, BATTERY_SERVICE_UUID],
 			},
 		});
 	}
@@ -42,8 +48,10 @@ class BLE extends BLEServer {
 		value: Parameters<BLEServer["onCharacteristicWritten"]>[1],
 	) {
 		trace(
-			`Characteristic ${characteristic.uuid} written with value: ${value}\n`,
+			`Characteristic ${characteristic.name} written with value: ${value}\n`,
 		);
+
+		if (characteristic.name === "light_characteristic") light({ mode: value });
 	}
 }
 

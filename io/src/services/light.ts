@@ -1,20 +1,27 @@
 import Digital from "pins/digital";
-import Timer from "timer";
 
-export function light() {
-	let blink = 1;
+interface LightParams {
+	mode: 0 | 1;
+}
+
+export function light({ mode }: LightParams) {
+	// let blink = 1;
 
 	const led = new Digital({ pin: 5, mode: Digital.Output });
 
-	console.log("Ligando o relé...");
+	console.log("MODE", mode);
 
-	Timer.repeat((id) => {
-		blink = blink ^ 1;
+	trace(mode === 0 ? "Ligando o relé..." : "Desligando o relé...");
 
-		led.write(blink);
+	led.write(Number(mode));
 
-		trace(`LED toggled => ${blink}\n`);
-	}, 2000);
+	// Timer.repeat(() => {
+	// 	blink = blink ^ 1;
+
+	// 	led.write(blink);
+
+	// 	trace(`LED toggled => ${blink}\n`);
+	// }, 2000);
 
 	return led;
 }
