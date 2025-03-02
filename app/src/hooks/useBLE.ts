@@ -69,12 +69,10 @@ export function useBLE() {
 	}
 
 	async function scanForPeripherals() {
-		await ble.startDeviceScan(null, null, (error, device) => {
+		await ble.startDeviceScan(null, null, async (error, device) => {
 			if (error) console.log(error);
 
-			console.log({ device });
-
-			if (device && (device.localName === "Luna" || device.name === "Luna")) {
+			if (device && device.localName === "Luna IO") {
 				setDevices((prev: Device[]) => {
 					if (!isDuplicteDevice(prev, device)) return [...prev, device];
 
@@ -118,7 +116,11 @@ export function useBLE() {
 
 			await deviceConnection.discoverAllServicesAndCharacteristics();
 
-			ble.stopDeviceScan();
+			const services = await deviceConnection.services();
+
+			console.log({ services });
+
+			await stopScanForPeripherals();
 
 			startStreamingData(deviceConnection);
 		} catch (e) {

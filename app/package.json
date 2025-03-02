@@ -10,7 +10,7 @@
     "check:updates": "bunx npm-check-updates --interactive --format group"
   },
   "dependencies": {
-    "better-auth": "^1.1.19",
+    "better-auth": "^1.2.0",
     "expo": "~52.0.37",
     "expo-constants": "~17.0.7",
     "expo-device": "~7.0.2",
