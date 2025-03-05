@@ -1,10 +1,9 @@
 import Net from "net";
 import Wifi, { type WiFiCallback } from "wifi";
+import { mqtt } from "./mqtt";
 
 export function wifi() {
 	function callback(event: Parameters<WiFiCallback>[0]) {
-		console.log(event);
-
 		switch (event) {
 			case Wifi.connected:
 				break;
@@ -13,6 +12,7 @@ export function wifi() {
 				break;
 			case Wifi.gotIP:
 				trace(`IP address ${Net.get("IP")}\n`);
+				mqtt();
 				break;
 		}
 	}
