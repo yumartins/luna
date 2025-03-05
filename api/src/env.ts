@@ -15,9 +15,13 @@ const envSchema = z.object({
 	AUTH_GOOGLE_ID: z.string(),
 	AUTH_GOOGLE_SECRET: z.string(),
 
+	MQTT_URL: z.string().url(),
+	MQTT_USERNAME: z.string(),
+	MQTT_PASSWORD: z.string(),
+
 	DATABASE_URL: z.string().url(),
 
-  BETTER_AUTH_SECRET: z.string(),
+	BETTER_AUTH_SECRET: z.string(),
 });
 
 const _env = envSchema.safeParse(Bun.env);

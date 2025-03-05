@@ -1,6 +1,26 @@
-version: '3.8'
-
 services:
+  mqtt:
+    image: eclipse-mosquitto:latest
+    container_name: mqtt
+    restart: always
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - luna_mqtt_data:/mosquitto/data
+      - luna_mqtt_log:/mosquitto/log
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/mosquitto.passwd:/mosquitto/config/mosquitto.passwd
+
+  redis:
+    image: bitnami/redis:latest
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'luna_redis_data:/bitnami/redis/data'
+
   postgres:
     image: bitnami/postgresql:latest
     ports:
@@ -12,15 +32,8 @@ services:
     volumes:
       - luna_pg_data:/bitnami/postgresql
 
-  redis:
-    image: bitnami/redis:latest
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
-    ports:
-      - '6379:6379'
-    volumes: 
-      - 'luna_redis_data:/bitnami/redis/data'
-
 volumes:
   luna_pg_data:
+  luna_mqtt_log:
+  luna_mqtt_data:
   luna_redis_data:
